@@ -13,6 +13,9 @@ if RoboArm is None:
 def MoveArm(Duration, ArmCmd):
     # Start the movement
     RoboArm.ctrl_transfer(0x40,6,0x100,0,ArmCmd,1000)
+	print Duration
+	Duration = float(Duration)
+	print Duration
     # Stop movement after waiting specified time
     time.sleep(Duration)
     ArmCmd=[0,0,0]
