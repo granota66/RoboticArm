@@ -45,18 +45,34 @@ def switch(duration, command):
 while True:
    	command = raw_input("Enter the movement:")
 	duration = raw_input("Enter the duration:")
-	duration = float(duration)
-	flag = switch(duration,command)
-	if flag == 0:
-		print 'Incorrect command. enter "help" for command list.'
-	elif flag == 1:
-		print 'Moving'
-	elif flag == 3:
+	if command == 'rc':
+		MoveArm(duration,[0,1,0])
+	elif command == 'rcc':
+		MoveArm(duration,[0,2,0])
+	elif command =='s+':
+		MoveArm(duration,[64,0,0])
+	elif command == 's-':
+		MoveArm(duration,[128,0,0])
+	elif command == 'e+':
+		MoveArm(duration,[16,0,0])
+	elif command == 'e-':
+		MoveArm(duration,[32,0,0])
+	elif command == 'w+':
+		MoveArm(duration,[4,0,0])
+	elif command == 'w-':
+		MoveArm(duration,[8,0,0])
+	elif command == 'g+':
+		MoveArm(duration,[2,0,0])
+	elif command == 'l+':
+		MoveArm(duration,[0,0,1])
+	elif command == 'l-':
+		MoveArm(duration,[0,0,0])
+	elif command == 'exit':
+		break
+	elif command =='help':
 		print 'rc: Rotate Clockwise\nrcc: Rotate Counter-Clockwise\ns+:Shoulder up\ns-: Should Down\ne+: Elbow Up\ne-: Elbow Down\nw+: Wrist Up\nw-: Wrist Down\ng+: Grip Open\ng-: Grip Close\nl+: Light On\nl-: Light Down\n'
 	else:
-		break
-		
-
+		print 'Incorrect command. enter "help" for command list.'
 
 
 #MoveArm(1,[0,1,0]) # Rotate Base Anti-clockwise
