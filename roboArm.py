@@ -22,68 +22,39 @@ def MoveArm(Duration, ArmCmd):
     RoboArm.ctrl_transfer(0x40,6,0x100,0,ArmCmd,1000)
     return 1
 
-def switch(duration, command):
-    return{
-        'rc': MoveArm(duration,[0,1,0]),
-        'rcc': MoveArm(duration,[0,2,0]),
-		's+': MoveArm(duration,[64,0,0]),
-		's-': MoveArm(duration,[128,0,0]),
-		'e+': MoveArm(duration,[16,0,0]),
-		'e-': MoveArm(duration,[32,0,0]),
-		'w+': MoveArm(duration,[4,0,0]),
-		'w-': MoveArm(duration,[8,0,0]),
-		'g+': MoveArm(duration,[2,0,0]),
-		'g-': MoveArm(duration,[1,0,0]),
-		'l+': MoveArm(duration,[0,0,1]),
-		'l-': MoveArm(duration,[0,0,1]),
-		'help': 3,
-		'exit': -1,
-        }.get(command, 0)
-
-
 
 while True:
    	command = raw_input("Enter the movement:")
 	duration = raw_input("Enter the duration:")
-	if command == 'rc':
+	if command == 'rc': #Rotate Base Clockwise
 		MoveArm(duration,[0,1,0])
-	elif command == 'rcc':
+	elif command == 'rcc': #Rotate Base Clockwise
 		MoveArm(duration,[0,2,0])
-	elif command =='s+':
+	elif command =='s+': #Should Up
 		MoveArm(duration,[64,0,0])
-	elif command == 's-':
+	elif command == 's-': #Should Down
 		MoveArm(duration,[128,0,0])
-	elif command == 'e+':
+	elif command == 'e+': #Elbow Up
 		MoveArm(duration,[16,0,0])
-	elif command == 'e-':
+	elif command == 'e-': #Elbow Down
 		MoveArm(duration,[32,0,0])
-	elif command == 'w+':
+	elif command == 'w+': #Waist Up
 		MoveArm(duration,[4,0,0])
-	elif command == 'w-':
+	elif command == 'w-': #Waist Down
 		MoveArm(duration,[8,0,0])
-	elif command == 'g+':
+	elif command == 'g+': #Grip Open
 		MoveArm(duration,[2,0,0])
-	elif command == 'l+':
+	elif command == 'g-': #Grip Close
+		MoveArm(duration,[1,0,0])
+	elif command == 'l+': #Light On
 		MoveArm(duration,[0,0,1])
-	elif command == 'l-':
+	elif command == 'l-': #Light Off
 		MoveArm(duration,[0,0,0])
 	elif command == 'exit':
 		break
 	elif command =='help':
-		print 'rc: Rotate Clockwise\nrcc: Rotate Counter-Clockwise\ns+:Shoulder up\ns-: Should Down\ne+: Elbow Up\ne-: Elbow Down\nw+: Wrist Up\nw-: Wrist Down\ng+: Grip Open\ng-: Grip Close\nl+: Light On\nl-: Light Down\n'
+		print 'rc: Rotate Clockwise\nrcc: Rotate Counter-Clockwise\ns+: Shoulder up\ns-: Should Down\ne+: Elbow Up\ne-: Elbow Down\nw+: Wrist Up\nw-: Wrist Down\ng+: Grip Open\ng-: Grip Close\nl+: Light On\nl-: Light Off\n'
 	else:
 		print 'Incorrect command. enter "help" for command list.'
 
 
-#MoveArm(1,[0,1,0]) # Rotate Base Anti-clockwise
-#MoveArm(1,[0,2,0]) # Rotate Base Clockwise
-#MoveArm(1,[64,0,0]) # Shoulder Up
-#MoveArm(1,[128,0,0]) # Shoulder Down
-#MoveArm(1,[16,0,0]) # Elbow Up
-#MoveArm(1,[32,0,0]) # Elbow Down
-#MoveArm(1,[4,0,0]) # Wrist Up
-#MoveArm(1,[8,0,0]) # Wrist Down
-#MoveArm(1,[2,0,0]) # Grip Open
-#MoveArm(1,[1,0,0]) # Grip Close
-#MoveArm(1,[0,0,1]) # Light On
-#MoveArm(1,[0,0,0]) # Light Off
