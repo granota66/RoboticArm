@@ -41,6 +41,7 @@ def switch(duration, command):
 while True:
    	command = raw_input("Enter the movement:")
 	duration = raw_input("Enter the duration:")
+	duration = float(duration)
 	flag = switch(duration,command)
 	if flag == 0:
 		print 'Incorrect command. enter "help" for command list.'
