@@ -19,6 +19,7 @@ def MoveArm(Duration, ArmCmd):
     ArmCmd=[0,0,0]
     RoboArm.ctrl_transfer(0x40,6,0x100,0,ArmCmd,
             1000)
+	return 1
 
 def switch(duration, command):
     return{
@@ -34,14 +35,24 @@ def switch(duration, command):
 		'g-': MoveArm(duration,[1,0,0]),
 		'l+': MoveArm(duration,[0,0,1]),
 		'l-': MoveArm(duration,[0,0,1]),
-		'exit': break
-        }.get(command, print 'Please enter a correct movement')
+		'help': 3,
+		'exit': -1
+        }.get(command, 0)
 
 
 while True:
    	command = raw_input("Enter the movement:")
 	duration = raw_input("Enter the duration:")
-	switch(duration,command)
+	flag = switch(duration,command)
+	if flag == 0:
+		print 'Incorrect command. enter "help" for command list.'
+	elif flag == 1:
+		print 'Moving'
+	elif flag == 3:
+		print 'rc: Rotate Clockwise\nrcc: Rotate Counter-Clockwise\ns+:Shoulder up\ns-: Should Down\ne+: Elbow Up\ne-: Elbow Down\nw+: Wrist Up\nw-: Wrist Down\ng+: Grip Open\ng-: Grip Close\nl+: Light On\nl-: Light Down\n'
+	else:
+		break
+		
 
 
 
