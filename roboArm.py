@@ -12,13 +12,11 @@ if RoboArm is None:
 # Define a procedure to execute each movement
 def MoveArm(Duration, ArmCmd):
     # Start the movement
-    RoboArm.ctrl_transfer(0x40,6,0x100,0,ArmCmd,
-            1000)
+    RoboArm.ctrl_transfer(0x40,6,0x100,0,ArmCmd,1000)
     # Stop movement after waiting specified time
     time.sleep(Duration)
     ArmCmd=[0,0,0]
-    RoboArm.ctrl_transfer(0x40,6,0x100,0,ArmCmd,
-            1000)
+    RoboArm.ctrl_transfer(0x40,6,0x100,0,ArmCmd,1000)
 	return 1
 
 def switch(duration, command):
