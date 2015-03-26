@@ -1,4 +1,6 @@
 # ROBOT ARM CONTROL PROGRAM
+# Author: Shien Hong
+
 # import the USB and Time libraries into Python
 import usb.core, usb.util, time
 # Allocate the name 'RoboArm' to the USB device
