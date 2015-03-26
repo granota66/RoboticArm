@@ -51,8 +51,8 @@ def switch(duration, command):
 		'w-': 8,
 		'g+': 9,
 		'g-': 10,
-		'l+': 11
-		'l-': 12
+		'l+': 11,
+		'l-': 12,
 		'help': 3,
 		'exit': -1,
         }.get(command, 0)
