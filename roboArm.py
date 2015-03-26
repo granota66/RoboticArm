@@ -22,22 +22,39 @@ def MoveArm(Duration, ArmCmd):
     RoboArm.ctrl_transfer(0x40,6,0x100,0,ArmCmd,1000)
     return 1
 
+#def switch(duration, command):
+#    return{
+#        'rc': MoveArm(duration,[0,1,0]),
+#        'rcc': MoveArm(duration,[0,2,0]),
+#		's+': MoveArm(duration,[64,0,0]),
+#		's-': MoveArm(duration,[128,0,0]),
+#		'e+': MoveArm(duration,[16,0,0]),
+#		'e-': MoveArm(duration,[32,0,0]),
+#		'w+': MoveArm(duration,[4,0,0]),
+#		'w-': MoveArm(duration,[8,0,0]),
+#		'g+': MoveArm(duration,[2,0,0]),
+#		'g-': MoveArm(duration,[1,0,0]),
+#		'l+': MoveArm(duration,[0,0,1]),
+#		'l-': MoveArm(duration,[0,0,1]),
+#		'help': 3,
+#		'exit': -1,
+#        }.get(command, 0)
 def switch(duration, command):
     return{
-        'rc': MoveArm(duration,[0,1,0]),
-        'rcc': MoveArm(duration,[0,2,0]),
-		's+': MoveArm(duration,[64,0,0]),
-		's-': MoveArm(duration,[128,0,0]),
-		'e+': MoveArm(duration,[16,0,0]),
-		'e-': MoveArm(duration,[32,0,0]),
-		'w+': MoveArm(duration,[4,0,0]),
-		'w-': MoveArm(duration,[8,0,0]),
-		'g+': MoveArm(duration,[2,0,0]),
-		'g-': MoveArm(duration,[1,0,0]),
-		'l+': MoveArm(duration,[0,0,1]),
-		'l-': MoveArm(duration,[0,0,1]),
+        'rc': 1,
+        'rcc': 2,
+		's+': 3,
+		's-': 4,
+		'e+': 5,
+		'e-': 6,
+		'w+': 7,
+		'w-': 8,
+		'g+': 9,
+		'g-': 10,
+		'l+': 11
+		'l-': 12
 		'help': 3,
-		'exit': -1
+		'exit': -1,
         }.get(command, 0)
 
 
