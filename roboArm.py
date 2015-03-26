@@ -17,7 +17,7 @@ def MoveArm(Duration, ArmCmd):
     time.sleep(Duration)
     ArmCmd=[0,0,0]
     RoboArm.ctrl_transfer(0x40,6,0x100,0,ArmCmd,1000)
-	return 1
+    return 1
 
 def switch(duration, command):
     return{
