@@ -24,8 +24,8 @@ def MoveArm(Duration, ArmCmd):
     RoboArm.ctrl_transfer(0x40,6,0x100,0,ArmCmd,1000)
     return 1
 
-if len(sys.argv) != 2:
-	raise ValueError("Not enough arguments")
+if len(sys.argv) != 3:
+	raise ValueError("This program requires two arguments")
 	
 command = str(sys.argv[1])
 duration = str(sys.argv[2])
